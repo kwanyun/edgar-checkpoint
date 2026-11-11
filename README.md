@@ -61,14 +61,29 @@ a rerun of all published metrics. See the companion code's VALIDATION.md.
 
 The supplied NVIDIA/Stability license text is retained in [LICENSE.txt](LICENSE.txt).
 See [NOTICE](NOTICE). This package grants no rights to redistribute the underlying
-NeRSemble images or other external assets. Review the applicable model and source
-data terms before publishing the model package.
+NeRSemble images or other external assets. Use of the weights is subject to the retained license terms.
 
 **Powered by Stability AI.**
 
+## Public download
 
-## Private downloads
+[Download edgar_exp6.zip](https://github.com/kwanyun/edgar-checkpoint/releases/download/v1.0/edgar_exp6.zip)
+([SHA256 checksum](https://github.com/kwanyun/edgar-checkpoint/releases/download/v1.0/edgar_exp6.zip.sha256)).
+No GitHub account or sign-in is required.
 
-[Download release assets](https://github.com/kwanyun/edgar-checkpoint/releases/tag/v1.0). Sign in with a GitHub account that has access.
+The 1.80 GB ZIP contains `edgar_exp6.pt`, its model card, license, notices, and checksum.
+ZIP compression preserves the original checkpoint bytes. This is the combined-data
+six-expert model; its training images are not included.
 
-Download `edgar_exp6.zip`, then unzip it to obtain `edgar_exp6.pt`, its model card, license, notices, and SHA256 checksum. ZIP compression preserves the checkpoint bytes. This is the combined-data six-expert model.
+From the directory containing both downloaded files, verify and extract:
+
+```bash
+sha256sum -c edgar_exp6.zip.sha256
+python -m zipfile -e edgar_exp6.zip checkpoints
+(cd checkpoints && sha256sum -c SHA256SUMS)
+```
+
+Use `checkpoints/edgar_exp6.pt` with the [EDGAR code](https://github.com/kwanyun/edgar-code).
+Obtain Sapiens and other external assets through the code README's links.
+The release's automatically generated source-code archives contain documentation only;
+download the named checkpoint ZIP above.
